@@ -12,16 +12,54 @@ columns = pickle.load(open('columns.pkl', 'rb'))
 def subscribed():
 
     data = request.form
-    vector = np.zeros(33)
+    vector = np.zeros(33)    
+    #df_job,df_marital,df_education,df_contact,df_poutcome
+#    `job`
+    job = data['job']
+    print(job)
+    job_list = columns.get('columns')[7:18].tolist()
+    print(job_list)
+    job_index = job_list.index(job)
+    print(job_index)
+    
+    #  marital
+    marital = data['marital']
+    print(marital)
+    marital_list = columns.get('columns')[18:21].tolist()
+    print(marital_list)
+    marital_index = marital_list.index(marital)
+    print(marital_index)
 
-    location = data['location']
-    print(location)
-    location_list = columns.get('columns')[8:].tolist()
-    print(location_list)
-    location_index = location_list.index(location)
-    print(location_index)
+#   education
+    education = data['education']
+    print(education)
+    education_list = columns.get('columns')[21:28].tolist()
+    print(education_list)
+    education_index = education_list.index(education)
+    print(education_index)
 
-    vector[location_index] == 1
+#   contact
+    contact = data['contact']
+    print(contact)
+    contact_list = columns.get('columns')[28:30].tolist()
+    print(contact_list)
+    contact_index = contact_list.index(contact)
+    print(contact_index)
+
+#   poutcome
+    poutcome = data['poutcome']
+    print(poutcome)
+    poutcome_list = columns.get('columns')[30:].tolist()
+    print(poutcome_list)
+    poutcome_index = poutcome_list.index(poutcome)
+    print(poutcome_index)
+
+
+    vector[job_index] == 1
+    vector[marital_index] == 1
+    vector[education_index] == 1
+    vector[contact_index] == 1
+    vector[poutcome_index] == 1
     vector[0] = data['age']
     vector[1] = data['default']
     vector[3] = data['housing']
@@ -36,11 +74,14 @@ def subscribed():
     input = [vector]
 
     prediction = model.predict(input)
-    if prediction == 1:
-        print("has the client subscribed a term deposit? >>>>> YES")
-    else:
+   
+    
+    # return ('customer subscribed  {} > 1=yes >0=no'.format(prediction))
+    if prediction ==1:
+        print("customer already subscribed")
         
-        return ('has the client subscribed a term deposit? >>>>> NO')
+    else:
+        return ('customer not subscribed'.format(prediction))
 
 if __name__ == "__main__":
     app.run(debug=True)
