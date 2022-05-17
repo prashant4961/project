@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BANK-CUSTOMERS</title>
+</head>
+<body>
+    
+<h1>CHECK if cutomer is suscribed or not..</h1> 
+
+
+<form method="POST" action = "/subscribed">
+
+
+<label for="job">Choose a job type :</label>
+<select name="job" id="job">
+<option value="admin.">admin.</option>
+<option value="blue-collar">blue-collar</option>
+<option value="entrepreneur">entrepreneur</option>
+<option value="housemaid">housemaid</option>
+<option value="management">management</option>
+<option value="retired">retired</option>
+<option value="self-employed">self-employed</option>
+<option value="services">services</option>
+<option value="student">student</option>
+<option value="technician">technician</option>
+<option value="unemployed">unemployed</option>
+
+</select>
+
+
+<label for="marital">Choose a marital status :</label>
+<select name="marital" id="marital"><br>
+<option value="divorced">divorced</option>
+<option value="married">married</option>
+<option value="single">single</option>
+</select>
+<br>
+<br>
+<label for="education">Choose a education :</label>
+<select name="education" id="education"><br>
+<option value="basic.4y">basic.4y</option>
+<option value="basic.6y">basic.6y</option>
+<option value="basic.9y	">basic.9y	</option>
+<option value="high.school">high.school</option>
+<option value="illiterate">illiterate</option>
+<option value="professional.course">professional.course</option>
+
+<option value="university.degree">university.degree</option>
+
+</select>
+
+<label for="contact">Choose contact type :</label>
+<select name="contact" id="contact"><br>
+<option value="cellular">cellular</option>
+<option value="telephone">telephone</option>
+</select>
+<br>
+<br>
+<label for="poutcome">Choose poutcome :</label>
+<select name="poutcome" id="poutcome"><br>
+<option value="failure">failure</option>
+<option value="nonexistent">nonexistent</option>
+<option value="success">success</option>
+</select>
+<br>
+<br>
+
+<label> age  </label>
+<input type ="text" name ='age'><br>
+
+<label> default </label>
+<input type ="text" name ='default'><br>
+
+<label> housing </label>
+<input type ="text" name ='housing'><br>
+
+<label> loan  </label>
+<input type ="text" name ='loan'><br>
+
+<label> duration </label>
+<input type ="text" name ='duration'><br>
+
+<label> campaign </label>
+<input type ="text" name ='campaign'><br>
+
+<label> pdays  </label>
+<input type ="text" name ='pdays'><br>
+
+<label> previous  </label>
+<input type ="text" name ='previous'><br>
+
+<input type="submit">
+
+{{prediction}}
+
+
+
+</form>
+
+</body>
+</html>

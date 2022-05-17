@@ -2,12 +2,16 @@ import pandas as pd
 import numpy as np
 import pickle
 
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify,render_template
 
 app = Flask(__name__)
 model = pickle.load(open('ada_modl_hyp.pkl','rb'))
 columns = pickle.load(open('columns.pkl', 'rb'))
 
+@app.route('/')
+def index():
+    return render_template('index.html')
+    # return "SUCCESS"
 @app.route('/subscribed', methods = ['POST'])
 def subscribed():
 
@@ -77,11 +81,12 @@ def subscribed():
    
     
     # return ('customer subscribed  {} > 1=yes >0=no'.format(prediction))
-    if prediction ==1:
-        print("customer already subscribed")
-        
+    if prediction[0] == 1:
+        final_result = "\ncustomer subscribed"
     else:
-        return ('customer not subscribed'.format(prediction))
+        final_result= "\ncustomer not subscribed"
+
+    return render_template('index.html',prediction= final_result)
 
 if __name__ == "__main__":
     app.run(debug=True)
