@@ -8,7 +8,8 @@
 </head>
 <body>
     
-<h1>CHECK if cutomer is suscribed or not..</h1> 
+<h1>Liability of customer</h1> 
+
 
 
 <form method="POST" action = "/subscribed">
@@ -68,30 +69,50 @@
 <br>
 <br>
 
-<label> age  </label>
-<input type ="text" name ='age'><br>
+<label> age (10,100) </label>
+<input type ="text" name ='age'>
 
-<label> default </label>
-<input type ="text" name ='default'><br>
 
-<label> housing </label>
-<input type ="text" name ='housing'><br>
+<label for="default">Credit in default? </label>
+<select name="default" id="default"><br>
+<option value="2">yes</option>
+<option value="1">no</option>
+<option value="0">unknown</option>
 
-<label> loan  </label>
-<input type ="text" name ='loan'><br>
+</select>
+<br>
+<br>
 
-<label> duration </label>
-<input type ="text" name ='duration'><br>
+<label for="housing">Housing loan? </label>
+<select name="housing" id="housing"><br>
+<option value="2">yes</option>
+<option value="1">no</option>
+<option value="0">unknown</option>
 
-<label> campaign </label>
+</select>
+
+<label for="loan">personal loan? </label>
+<select name="loan" id="loan"><br>
+<option value="2">yes</option>
+<option value="1">no</option>
+<option value="0">unknown</option>
+</select>
+<br>
+<br>
+
+<label> duration in hrs</label>
+<input type ="text" name ='duration'>
+
+
+<label> contacts performed before campaign </label>
 <input type ="text" name ='campaign'><br>
+<br>
+<label> client last contacted  </label>
+<input type ="text" name ='pdays'>
 
-<label> pdays  </label>
-<input type ="text" name ='pdays'><br>
-
-<label> previous  </label>
+<label> previously contacts performed  </label>
 <input type ="text" name ='previous'><br>
-
+<br>
 <input type="submit">
 
 {{prediction}}
